@@ -7,6 +7,7 @@ import cors from 'cors'
 import userRoutes from "./Routes/userRoutes.js";
 import productRoutes from "./Routes/productRoutes.js";
 import commandRoutes from "./Routes/commandRoutes.js";
+import dashboardRoutes from './Routes/dashboardRoutes.js';
 
 
 const app = express();
@@ -21,10 +22,13 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.use(cookieParser())
-
+app.use(express.json()); // Parse JSON
+app.use(express.urlencoded({ extended: true })); // Parse form-data
 app.use(productRoutes);
 app.use(userRoutes);
 app.use(commandRoutes);
+app.use(dashboardRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

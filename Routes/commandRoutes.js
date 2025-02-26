@@ -15,6 +15,11 @@ router.get('/command/:id', commandController.getCommandById);
 // Update a Command by ID
 router.put('/command/:id', commandController.updateCommand);
 
+// Update only the status of a Command
+router.put('/command/:id/status', commandController.updateCommandStatus);
+
+router.get('/command/:id/details', commandController.getCommandDetails);
+
 // Delete a Command by ID
 router.delete('/command/:id', commandController.deleteCommand);
 

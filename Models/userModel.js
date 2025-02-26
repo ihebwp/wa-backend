@@ -17,7 +17,7 @@ const userschema = mongoose.Schema({
   role:{
     type:String
   }
-});
+}, { timestamps: true });
 
 const user = mongoose.model("User", userschema);
 export default user;
